@@ -58,4 +58,3 @@ All code is implemented in R using:
 install.packages(c("rstan", "ggplot2", "reshape2", "dplyr", "bayesplot", "patchwork"))
 
 # Clone the repository
-# Run the examples in the /code directory
