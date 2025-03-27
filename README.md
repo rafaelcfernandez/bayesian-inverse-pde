@@ -13,6 +13,42 @@ Both methods are implemented within a fully Bayesian framework using:
 - Hamiltonian Monte Carlo (HMC) with No-U-Turn Sampler
 - Automatic Differentiation Variational Inference (ADVI)
 
+## Repository Structure
+
+bayesian-inverse-pde/
+├── README.md
+├── LICENSE
+├── inference/
+│   ├── stan_models/
+│   │   ├── nonlinear_regression.stan  # Stan model for regression approach
+│   │   └── gaussian_process.stan      # Stan model for GP approach
+│   ├── hmc.R                          # HMC implementation utilities
+│   └── advi.R                         # ADVI implementation utilities
+│
+├── solvers/
+│   ├── exponential_exact.R            # Exact solution for exp growth
+│   ├── exponential_numeric.R          # Numeric solver for exp growth
+│   ├── heat_exact.R                   # Exact solution for heat equation
+│   ├── heat_numeric.R                 # Numeric solver for heat equation
+│   └── adr_numeric.R                  # Numeric solver for ADR equation
+│
+├── case_studies/
+│   ├── exponential_growth/
+│   │   ├── exp_regression.R           # Non-linear regression approach
+│   │   └── exp_gp.R                   # GP approach
+│   │
+│   ├── heat_equation/
+│   │   ├── heat_regression.R          # Non-linear regression approach
+│   │   └── heat_gp.R                  # GP approach
+│   │
+│   └── advection_diffusion_reaction/
+│       └── adr_regression.R           # Non-linear regression approach
+│
+└── experiments/
+    ├── comparison_hmc_advi.R          # Comparison of inference methods
+    ├── comparison_exact_numeric.R     # Comparison of solution approaches
+    └── predictive_performance.R       # Analysis of predictive performance
+
 ## Case Studies
 
 We demonstrate our framework through three case studies of increasing complexity:
