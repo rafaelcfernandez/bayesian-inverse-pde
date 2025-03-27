@@ -51,13 +51,6 @@ All code is implemented in R using:
 - Stan for Bayesian inference
 - ggplot2 with a publication-quality theme for visualizations
 
-## Repository Structure
-
-- `/code`: R and Stan implementation files
-- `/figures`: Generated visualizations
-- `/data`: Simulation data for case studies
-- `/paper`: Supplementary materials related to the paper
-
 ## Getting Started
 
 ```r
