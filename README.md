@@ -16,38 +16,40 @@ Both methods are implemented within a fully Bayesian framework using:
 ## Repository Structure
 
 bayesian-inverse-pde/
-├── README.md
-├── LICENSE
 ├── inference/
 │   ├── stan_models/
-│   │   ├── nonlinear_regression.stan  # Stan model for regression approach
-│   │   └── gaussian_process.stan      # Stan model for GP approach
-│   ├── hmc.R                          # HMC implementation utilities
-│   └── advi.R                         # ADVI implementation utilities
+│   │   ├── nonlinear_regression.stan
+│   │   └── gaussian_process.stan
+│   ├── hmc.R
+│   └── advi.R
 │
 ├── solvers/
-│   ├── exponential_exact.R            # Exact solution for exp growth
-│   ├── exponential_numeric.R          # Numeric solver for exp growth
-│   ├── heat_exact.R                   # Exact solution for heat equation
-│   ├── heat_numeric.R                 # Numeric solver for heat equation
-│   └── adr_numeric.R                  # Numeric solver for ADR equation
+│   ├── exponential_exact.R
+│   ├── exponential_numeric.R
+│   ├── heat_exact.R
+│   ├── heat_numeric.R
+│   └── adr_numeric.R
 │
 ├── case_studies/
 │   ├── exponential_growth/
-│   │   ├── exp_regression.R           # Non-linear regression approach
-│   │   └── exp_gp.R                   # GP approach
-│   │
+│   │   ├── exp_regression.R
+│   │   └── exp_gp.R
 │   ├── heat_equation/
-│   │   ├── heat_regression.R          # Non-linear regression approach
-│   │   └── heat_gp.R                  # GP approach
-│   │
+│   │   ├── heat_regression.R
+│   │   └── heat_gp.R
 │   └── advection_diffusion_reaction/
-│       └── adr_regression.R           # Non-linear regression approach
+│       └── adr_regression.R
 │
 └── experiments/
-    ├── comparison_hmc_advi.R          # Comparison of inference methods
-    ├── comparison_exact_numeric.R     # Comparison of solution approaches
-    └── predictive_performance.R       # Analysis of predictive performance
+├── comparison_hmc_advi.R
+├── comparison_exact_numeric.R
+└── predictive_performance.R
+
+This structure organizes the code into four main components:
+- **inference**: Stan models and inference method utilities
+- **solvers**: Exact and numerical solvers for each equation
+- **case_studies**: Implementation of both approaches for each example
+- **experiments**: Comparative analyses across methods
 
 ## Case Studies
 
