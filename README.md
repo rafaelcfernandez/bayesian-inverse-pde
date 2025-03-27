@@ -15,41 +15,27 @@ Both methods are implemented within a fully Bayesian framework using:
 
 ## Repository Structure
 
-bayesian-inverse-pde/
-├── inference/
-│   ├── stan_models/
-│   │   ├── nonlinear_regression.stan
-│   │   └── gaussian_process.stan
-│   ├── hmc.R
-│   └── advi.R
-│
-├── solvers/
-│   ├── exponential_exact.R
-│   ├── exponential_numeric.R
-│   ├── heat_exact.R
-│   ├── heat_numeric.R
-│   └── adr_numeric.R
-│
-├── case_studies/
-│   ├── exponential_growth/
-│   │   ├── exp_regression.R
-│   │   └── exp_gp.R
-│   ├── heat_equation/
-│   │   ├── heat_regression.R
-│   │   └── heat_gp.R
-│   └── advection_diffusion_reaction/
-│       └── adr_regression.R
-│
-└── experiments/
-├── comparison_hmc_advi.R
-├── comparison_exact_numeric.R
-└── predictive_performance.R
+### Exponential Growth Model
+- `exponential_growth_regression.stan` - Non-linear regression for exact analytical solution
+- `exponential_growth_numeric.stan` - Non-linear regression with finite differences approximation
+- `exponential_growth_data.rds` - Simulated data for the exponential growth model
 
-This structure organizes the code into four main components:
-- **inference**: Stan models and inference method utilities
-- **solvers**: Exact and numerical solvers for each equation
-- **case_studies**: Implementation of both approaches for each example
-- **experiments**: Comparative analyses across methods
+### Heat Equation
+- `heat_equation_regression.stan` - Non-linear regression for exact solution
+- `heat_equation_numeric.stan` - Non-linear regression with finite differences
+- `heat_equation_data.rds` - Simulated data for the heat equation
+
+### Advection-Diffusion-Reaction System
+- `advection_diffusion_reaction_regression.stan` - Non-linear regression with finite differences
+- `advection_diffusion_reaction_variational.stan` - Automatic Differentiation Variational Inference implementation
+- `advection_diffusion_reaction_data.rds` - Simulated data for the advection-diffusion-reaction system
+
+### Gaussian Process Models
+- `gaussian_process_basic.stan` - Basic Gaussian Process without physical constraints
+- `gaussian_process_linear.stan` - Gaussian Process with linear mean function
+- `gaussian_process_quadratic.stan` - Gaussian Process with quadratic mean function
+- `gaussian_process_physics.stan` - Gaussian Process with physical constraints
+- `gaussian_process_data.rds` - Data used for Gaussian Process model training and evaluation
 
 ## Case Studies
 
