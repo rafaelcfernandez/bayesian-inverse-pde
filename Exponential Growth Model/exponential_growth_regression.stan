@@ -1,30 +1,27 @@
+// exponential_growth_regression.stan
+// Bayesian inverse problem for exponential growth equation
+// du/dt - lambda * u = 0, with u(0) = 1
+// Exact analytical solution: u(t) = exp(lambda * t)
+
 data {
-  int<lower=1> N;         // Número de pontos de dados
-  vector[N] x;            // Posições no espaço
-  vector[N] t;            // Tempos
-  vector[N] y;            // Valores observados (f(x,t))
-  real<lower=0> L;        // Comprimento da barra
+  int<lower=0> n;                    // Number of observations
+  vector[n] t;                       // Time points
+  vector[n] y;                       // Observed responses
 }
 
 parameters {
-  real<lower=0> sigma_c;  // Parâmetro sigma_c (largura da gaussiana)
-  real<lower=0> alpha;    // Coeficiente de difusão
-  real<lower=0> sigma_e;  // Desvio padrão do ruído
+  real<lower=0> lambda;              // Growth rate parameter
+  real<lower=0> sigma_y;             // Measurement error standard deviation
 }
 
 model {
-  vector[N] mu;           // Valores esperados pelo modelo
-  
-  // Definindo a solução esperada pela equação do calor
-  for (n in 1:N) {
-    mu[n] = exp(-(pow(x[n] - L/2, 2)) / (2 * pow(sigma_c, 2))) * exp(-alpha * t[n]);
+  // Likelihood: y_i ~ N(u(t_i; lambda), sigma_y^2)
+  // where u(t; lambda) = exp(lambda * t)
+  for (i in 1:n) {
+    y[i] ~ normal(exp(lambda * t[i]), sigma_y);
   }
   
-  // Verossimilhança com ruído aditivo gaussiano
-  y ~ normal(mu, sigma_e);  // Distribuição normal para as observações com ruído
-  
-  // Prioris
-  sigma_c ~ normal(1, 0.5);   // Prior para sigma_c
-  alpha ~ normal(1, 0.5);     // Prior para alpha
-  sigma_e ~ cauchy(0, 0.1);   // Prior para o desvio padrao do ruido
+  // Priors
+  lambda ~ normal(0, 10);            // Growth rate prior
+  sigma_y ~ cauchy(0, 10);           // Measurement error prior
 }
