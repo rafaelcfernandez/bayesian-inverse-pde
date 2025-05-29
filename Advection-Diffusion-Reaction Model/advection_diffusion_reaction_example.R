@@ -142,4 +142,4 @@ data_list <- list(
 
 # FITTING -------------------------------------------------------------------------------------
 
-fit_hmc <- sampling(model, data = data_list, iter = 2000, warmup = 1000, seed = 123, chains = 2)
+fit_hmc <- sampling(model, data = data_list, iter = 2000, warmup = 1000, seed = 123, chains = 1)
