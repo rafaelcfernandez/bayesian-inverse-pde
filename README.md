@@ -21,11 +21,6 @@ Six-parameter system for environmental contamination modeling and industrial pro
 - `advection_diffusion_reaction_variational.stan` - ADVI implementation
 - `advection_diffusion_reaction_example.R` - Complete implementation with synthetic data
 
-### Exponential Growth Model
-Tutorial example demonstrating basic parameter estimation in ODEs.
-- `exponential_growth.stan` - Basic implementation
-- `exponential_growth_example.R` - Complete analysis
-
 ### Exponential Growth Aluminium Model
 Real experimental application: thermal diffusivity estimation in aluminum using 56 temperature measurements.
 - `exponential_growth_aluminium.stan` - Physics-informed model
@@ -51,9 +46,17 @@ Surrogate modeling framework with increasing complexity.
 Applications in order of implementation:
 
 1. **Advection-Diffusion-Reaction System**: Six-parameter environmental contamination model
-2. **Exponential Growth Model**: Basic ODE parameter estimation
-3. **Aluminum Thermal Analysis**: Real experimental data for specific heat capacity estimation
-4. **Viscous Burgers Equation**: Nonlinear PDE via Cole-Hopf transformation
+2. **Aluminum Thermal Analysis**: Real experimental data for specific heat capacity estimation
+3. **Viscous Burgers Equation**: Nonlinear PDE via Cole-Hopf transformation
+
+## Supplementary Material
+
+Additional tutorial examples and detailed implementations are available in the supplementary material:
+- **Exponential Growth Model**: Basic ODE parameter estimation
+- **Heat Equation**: Tutorial on spatiotemporal PDEs
+- **Extended derivations**: Mathematical details of b-PIGP framework
+
+Access supplementary material at: [link to supplementary materials]
 
 ## Implementation
 
