@@ -21,18 +21,6 @@ Six-parameter system for environmental contamination modeling and industrial pro
 - `advection_diffusion_reaction_variational.stan` - ADVI implementation
 - `advection_diffusion_reaction_example.R` - Complete implementation with synthetic data
 
-### Exponential Growth Aluminium Model
-Real experimental application: thermal diffusivity estimation in aluminum using 56 temperature measurements.
-- `exponential_growth_aluminium.stan` - Physics-informed model
-- `gaussian_process_physics.stan` - B-PIGP implementation
-- `aluminum_data.csv` - Experimental temperature data
-- `aluminum_example.R` - Complete analysis pipeline
-
-### Viscous Burger Model
-Nonlinear PDE solved via Cole-Hopf transformation.
-- `burgers.stan` - Implementation via transformation
-- `burgers_example.R` - Complete analysis
-
 ### Gaussian Process Model
 Surrogate modeling framework with increasing complexity.
 - `gaussian_process_basic.stan` - Basic GP without physical constraints
@@ -40,6 +28,16 @@ Surrogate modeling framework with increasing complexity.
 - `gaussian_process_quadratic.stan` - GP with quadratic mean function
 - `gaussian_process_physics.stan` - Bayesian Physics-Informed GP (b-PIGP)
 - `gaussian_process_example.R` - Complete implementation
+
+### Exponential Growth Aluminium Model
+Real experimental application: thermal diffusivity estimation in aluminum using 56 temperature measurements.
+- `exponential_growth_aluminium.stan` - Physics-informed model
+- `aluminum_data.csv` - Experimental temperature data
+
+### Viscous Burger Model
+Nonlinear PDE solved via Cole-Hopf transformation.
+- `burgers.stan` - Implementation via transformation
+
 
 ## Case Studies
 
