@@ -15,35 +15,45 @@ Both methods are implemented within a fully Bayesian framework using:
 
 ## Repository Structure
 
-### Exponential Growth Model
-- `exponential_growth_regression.stan` - Non-linear regression for exact analytical solution
-- `exponential_growth_numeric.stan` - Non-linear regression with finite differences approximation
-- `exponential_growth_example.R` - Complete implementation with synthetic data generation
-
-### Heat Equation
-- `heat_equation_regression.stan` - Non-linear regression for exact solution
-- `heat_equation_numeric.stan` - Non-linear regression with finite differences
-- `heat_equation_example.R` - Complete implementation with synthetic data generation
-
-### Advection-Diffusion-Reaction System
+### Advection-Diffusion-Reaction Model
+Six-parameter system for environmental contamination modeling and industrial process control.
 - `advection_diffusion_reaction_regression.stan` - Non-linear regression with finite differences
-- `advection_diffusion_reaction_example.R` - Complete implementation with synthetic data generation
 - `advection_diffusion_reaction_variational.stan` - ADVI implementation
+- `advection_diffusion_reaction_example.R` - Complete implementation with synthetic data
 
-### Gaussian Process Models
-- `gaussian_process_basic.stan` - Basic Gaussian Process without physical constraints
-- `gaussian_process_basic_example.R` - Complete implementation with synthetic data generation
-- `gaussian_process_linear.stan` - Gaussian Process with linear mean function
-- `gaussian_process_quadratic.stan` - Gaussian Process with quadratic mean function
-- `gaussian_process_physics.stan` - Gaussian Process with physical constraints (b-PIGP)
+### Exponential Growth Model
+Tutorial example demonstrating basic parameter estimation in ODEs.
+- `exponential_growth.stan` - Basic implementation
+- `exponential_growth_example.R` - Complete analysis
+
+### Exponential Growth Aluminium Model
+Real experimental application: thermal diffusivity estimation in aluminum using 56 temperature measurements.
+- `exponential_growth_aluminium.stan` - Physics-informed model
+- `gaussian_process_physics.stan` - B-PIGP implementation
+- `aluminum_data.csv` - Experimental temperature data
+- `aluminum_example.R` - Complete analysis pipeline
+
+### Viscous Burger Model
+Nonlinear PDE solved via Cole-Hopf transformation.
+- `burgers.stan` - Implementation via transformation
+- `burgers_example.R` - Complete analysis
+
+### Gaussian Process Model
+Surrogate modeling framework with increasing complexity.
+- `gaussian_process_basic.stan` - Basic GP without physical constraints
+- `gaussian_process_linear.stan` - GP with linear mean function
+- `gaussian_process_quadratic.stan` - GP with quadratic mean function
+- `gaussian_process_physics.stan` - Bayesian Physics-Informed GP (b-PIGP)
+- `gaussian_process_example.R` - Complete implementation
 
 ## Case Studies
 
-We demonstrate our framework through three case studies of increasing complexity:
+Applications in order of implementation:
 
-- **Exponential Growth Model**: A simple one-dimensional ODE
-- **Heat Equation**: A two-dimensional spatiotemporal PDE  
-- **Advection-Diffusion-Reaction System**: A complex PDE with six unknown parameters
+1. **Advection-Diffusion-Reaction System**: Six-parameter environmental contamination model
+2. **Exponential Growth Model**: Basic ODE parameter estimation
+3. **Aluminum Thermal Analysis**: Real experimental data for specific heat capacity estimation
+4. **Viscous Burgers Equation**: Nonlinear PDE via Cole-Hopf transformation
 
 ## Implementation
 
@@ -51,14 +61,31 @@ All code is implemented in R using:
 - Stan for Bayesian inference
 - ggplot2 with publication-quality themes for visualizations
 - Standardized code structure across all examples
-- Self-contained synthetic data generation in each example
 
 ## Getting Started
-
 ```r
 # Install required packages
 install.packages(c("rstan", "ggplot2", "reshape2", "viridis", "plotly"))
 
 # Run example implementations
-source("advection_diffusion_reaction_example.R")  # ADR system
-source("gaussian_process_basic_example.R")        # Basic GP model
+source("Advection-Diffusion-Reaction Model/advection_diffusion_reaction_example.R")
+source("Exponential Growth Aluminium Model/aluminum_example.R")
+source("Gaussian Process Model/gaussian_process_example.R")
+source("Viscous Burger Model/burgers_example.R")
+```
+
+## Citation
+
+If you use this code in your research, please cite:
+```bibtex
+@article{fernandez2025bayesian,
+  title={Bayesian Solutions to Inverse Problems in Differential Equations: From Theory to Implementation},
+  author={Fernandez, R.C. and Zanini, C.T.P. and Schmidt, A.M. and Migon, H.S. and Silva Neto, A.J.},
+  journal={Applied Mathematical Modelling},
+  year={2025}
+}
+```
+
+## Acknowledgments
+
+This study was financed in part by the Coordenação de Aperfeiçoamento de Pessoal de Nível Superior - Brasil (CAPES) - Finance Code 001, Fundação Carlos Chagas Filho de Amparo à Pesquisa do Estado do Rio de Janeiro (FAPERJ), Conselho Nacional de Desenvolvimento Científico e Tecnológico (CNPq), and Natural Sciences and Engineering Research Council of Canada Discovery Grant (NSERC-DG).
