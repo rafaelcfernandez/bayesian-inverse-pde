@@ -36,8 +36,8 @@ Real experimental application: thermal diffusivity estimation in aluminum using 
 
 ### Viscous Burger Model
 Nonlinear PDE solved via Cole-Hopf transformation.
+- `burgers_example.r` - Complete implementation with synthetic data
 - `burgers.stan` - Implementation via transformation
-
 
 ## Case Studies
 
@@ -53,8 +53,6 @@ Additional tutorial examples and detailed implementations are available in the s
 - **Exponential Growth Model**: Basic ODE parameter estimation
 - **Heat Equation**: Tutorial on spatiotemporal PDEs
 - **Extended derivations**: Mathematical details of b-PIGP framework
-
-Access supplementary material at: [link to supplementary materials]
 
 ## Implementation
 
