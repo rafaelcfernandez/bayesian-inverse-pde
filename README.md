@@ -78,7 +78,7 @@ source("Viscous Burger Model/burgers_example.R")
 If you use this code in your research, please cite:
 ```bibtex
 @article{fernandez2025bayesian,
-  title={Bayesian Solutions to Inverse Problems in Differential Equations: From Theory to Implementation},
+  title={Inverse problems in Differential Equations based models: Bayesian formulations and applications},
   author={Fernandez, R.C. and Zanini, C.T.P. and Schmidt, A.M. and Migon, H.S. and Silva Neto, A.J.},
   journal={Applied Mathematical Modelling},
   year={2025}
